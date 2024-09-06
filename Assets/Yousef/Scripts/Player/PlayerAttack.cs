@@ -56,12 +56,6 @@ public class PlayerAttack : MonoBehaviour {
                     break;
             }
         }
-        // If attack action is started but the player is not grounded, trigger air attack animation
-        else if (context.started && !Detection.Grounded()) {
-            // Disable the player movement
-            Movement.Speed = 0;
-            animator.SetBool("Air_ATK", true);
-        }
     }
 
     // Method to enable combo
@@ -84,12 +78,5 @@ public class PlayerAttack : MonoBehaviour {
 
         // Set Attack Count to 0
         AttackCount = 0;
-    }
-
-    // Method to finish air attack animation
-    private void FinishAir() {
-        // Enable the player movement
-        Movement.Speed = NormalSpeed;
-        animator.SetBool("Air_ATK", false);
     }
 }
