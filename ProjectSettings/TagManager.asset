@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - BACK
-  - Ground
+  - 
   - 
   - 
   - 
@@ -43,9 +43,6 @@ TagManager:
     locked: 0
   - name: Ceil
     uniqueID: 1261366285
-    locked: 0
-  - name: Ground
-    uniqueID: 41814427
     locked: 0
   - name: Default
     uniqueID: 0
