@@ -618,3 +618,4 @@ MonoBehaviour:
   animator: {fileID: 3053228500199354}
   Movement: {fileID: 1460414407673535578}
   Detection: {fileID: 3385238815660688903}
+  CanAirAttack: 1
