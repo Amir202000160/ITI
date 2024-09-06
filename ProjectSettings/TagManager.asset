@@ -2,17 +2,17 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ceil
   - Water
   - UI
-  - 
-  - 
+  - BACK
+  - Ground
   - 
   - 
   - 
@@ -38,6 +38,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BACK
+    uniqueID: 2212157555
+    locked: 0
+  - name: Ceil
+    uniqueID: 1261366285
+    locked: 0
+  - name: Ground
+    uniqueID: 41814427
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  m_RenderingLayers:
+  - Default
