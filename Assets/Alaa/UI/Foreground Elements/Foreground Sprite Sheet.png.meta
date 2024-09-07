@@ -150,6 +150,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -584,7 +597,26 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Foreground Sprite Sheet_0: -1450792890246578887
+      Foreground Sprite Sheet_1: 4725020418043240969
+      Foreground Sprite Sheet_10: -180808480682076293
+      Foreground Sprite Sheet_11: -5435224127933620740
+      Foreground Sprite Sheet_12: 5395957862074498281
+      Foreground Sprite Sheet_13: 3093158917381153813
+      Foreground Sprite Sheet_14: 2402751289098561149
+      Foreground Sprite Sheet_15: 7570334716158961032
+      Foreground Sprite Sheet_16: -5043599337319681037
+      Foreground Sprite Sheet_17: 473894167815604773
+      Foreground Sprite Sheet_18: 7040470756973174746
+      Foreground Sprite Sheet_2: 2873686297592841924
+      Foreground Sprite Sheet_3: 7863019336025271018
+      Foreground Sprite Sheet_4: 5462580645466399159
+      Foreground Sprite Sheet_5: 7451249084883668651
+      Foreground Sprite Sheet_6: 1249773667545149492
+      Foreground Sprite Sheet_7: -310181704952284424
+      Foreground Sprite Sheet_8: -5291800732346387843
+      Foreground Sprite Sheet_9: 7460825785024689592
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

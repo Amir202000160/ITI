@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SpikeHead : MonoBehaviour
+public class SpikeHead : EnemyDamage
 {
     [SerializeField] private float speed = 8.0f;
     [SerializeField] private float range = 10.0f;
@@ -64,6 +64,7 @@ public class SpikeHead : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        base.OnTriggerEnter2D(collision);
         Stop();
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyProjectile : MonoBehaviour
+public class EnemyProjectile : EnemyDamage
 {
     [SerializeField] private float speed = 1.5f;
     [SerializeField] private float resetTime = 5.0f;
@@ -24,6 +24,7 @@ public class EnemyProjectile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        base.OnTriggerEnter2D(collision);
         gameObject.SetActive(false);
     }
 
