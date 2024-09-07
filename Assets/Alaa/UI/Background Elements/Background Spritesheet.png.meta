@@ -141,6 +141,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -509,7 +522,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Background Spritesheet_0: -3908332499422555081
+      Background Spritesheet_1: -7469366795115492306
+      Background Spritesheet_10: 795531678984579023
+      Background Spritesheet_11: -3103650352143711112
+      Background Spritesheet_12: -8712666358427565326
+      Background Spritesheet_13: -7676742842488977596
+      Background Spritesheet_14: -5645940684929440415
+      Background Spritesheet_15: 1261128188520711115
+      Background Spritesheet_2: 755061605742730068
+      Background Spritesheet_3: 5246515953185538356
+      Background Spritesheet_4: -4290012523395296852
+      Background Spritesheet_5: -9100496503365902350
+      Background Spritesheet_6: -84984945215251404
+      Background Spritesheet_7: -614356662241925060
+      Background Spritesheet_8: -4327249707365482605
+      Background Spritesheet_9: -21440366613828649
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

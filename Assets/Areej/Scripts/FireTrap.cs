@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class FireTrap : MonoBehaviour
 {
+    [SerializeField] private float damage = 2.0f;
+
     [SerializeField] private float activationDelay = 2.0f;
     [SerializeField] private float activationTime = 2.0f;
 
@@ -26,7 +28,7 @@ public class FireTrap : MonoBehaviour
         }
         if (active)
         {
-            //Damage logic
+            collision.GetComponent<Health>().TakeDamade(damage);
         }
     }
     private IEnumerator ActivateFireTrap()
