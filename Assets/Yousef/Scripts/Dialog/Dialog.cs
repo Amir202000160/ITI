@@ -33,7 +33,7 @@ public class Dialog : MonoBehaviour {
     private const string SPEAKER_TAG = "Speaker"; // Tag used in the dialog script to identify the speaker
 
     // Activates the dialog system and initializes the story
-    public void EnableSystem() {
+    public void Start() {
         DialogSystem.SetActive(true);
         SetStory();
         RefreshView();
