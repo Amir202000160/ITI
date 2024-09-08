@@ -34,7 +34,7 @@ public class optianolchoice : MonoBehaviour
 
     public void YesYes()
     {
-        SceneManager.LoadScene("Start");
+        SceneManager.LoadScene("BegininfProfile");
     }
 
     public void NoNo()
