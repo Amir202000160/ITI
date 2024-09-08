@@ -19,6 +19,11 @@ public class PlayerAttack : MonoBehaviour {
     private bool Combo = true; // Flag to indicat whether the player can perform a combo attack
     private float NormalSpeed;
 
+    // Dialog UI elements
+    [Header("Dialog UI:")]
+    [Tooltip("Parent object for the entire dialog system")]
+    [SerializeField] private GameObject DialogSystem; // Parent object for the entire dialog system
+
     // Called when the script is first initialized
     private void Start() {
         // Check for player input
@@ -26,6 +31,16 @@ public class PlayerAttack : MonoBehaviour {
         InputAction.Player.Enable();
         InputAction.Player.Attack.started += context => Attack(context);
         NormalSpeed = Movement.Speed;
+    }
+
+    // Called every frame
+    private void Update() {
+        if (DialogSystem.activeInHierarchy) {
+            InputAction.Player.Disable();
+        }
+        else {
+            InputAction.Player.Enable();
+        }
     }
 
     // This method handles the player's attack action
