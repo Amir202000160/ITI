@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3391781582710741724}
   m_Layer: 0
   m_Name: FireTrap
-  m_TagString: Untagged
+  m_TagString: Enemy Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,8 +30,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3.29, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 446d927620d120e4299cec09a385c418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 20
   activationDelay: 2
   activationTime: 2
 --- !u!95 &3391781582710741724
