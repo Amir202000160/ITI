@@ -81,7 +81,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -6188768998144020764, guid: 7697dc2f1fee4bd46a6a0ad301ce3827, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -231,6 +231,7 @@ MonoBehaviour:
   SlideSpeed: 1.5
   CoyoteTime: 0.25
   Health: 100
+  DialogSystem: {fileID: 0}
 --- !u!114 &7247290001821399863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,3 +247,4 @@ MonoBehaviour:
   animator: {fileID: 2870921398855435579}
   Movement: {fileID: 8823345304849735380}
   Detection: {fileID: 8318893257599985894}
+  DialogSystem: {fileID: 0}
