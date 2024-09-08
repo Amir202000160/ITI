@@ -8,7 +8,7 @@ public class EnemyDamage : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            collision.GetComponent<Health>().TakeDamade(damage);
+            collision.GetComponent<PlayerMovement>().TakeDamage(damage);
         }
     }
 }

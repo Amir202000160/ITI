@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyProjectile : EnemyDamage
 {
-    [SerializeField] private float speed = 1.5f;
+    [SerializeField] private float speed = 15f;
     [SerializeField] private float resetTime = 5.0f;
 
     private float arrowLifeTime;
