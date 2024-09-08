@@ -47,7 +47,10 @@ public class PlayerMovement : MonoBehaviour {
     [Tooltip("Current health of the player")]
     public float Health; // Current health of the player
 
-
+    // Dialog UI elements
+    [Header("Dialog UI:")]
+    [Tooltip("Parent object for the entire dialog system")]
+    [SerializeField] private GameObject DialogSystem; // Parent object for the entire dialog system
 
     // Called when the script is first initialized
     private void Start() {
@@ -63,6 +66,13 @@ public class PlayerMovement : MonoBehaviour {
 
     // Called every frame
     private void Update() {
+        if (DialogSystem.activeInHierarchy) {
+            InputAction.Player.Disable();
+        }
+        else {
+            InputAction.Player.Enable();
+        }
+
         // Get player movement input
         Movement = InputAction.Player.Move.ReadValue<Vector2>();
 
