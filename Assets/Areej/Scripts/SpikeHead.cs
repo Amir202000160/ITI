@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SpikeHead : EnemyDamage
+public class SpikeHead : Hit
 {
     [SerializeField] private float speed = 8.0f;
     [SerializeField] private float range = 10.0f;

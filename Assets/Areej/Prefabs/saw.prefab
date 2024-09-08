@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 2523552240462122154}
   - component: {fileID: 2523552240462122155}
   - component: {fileID: 2523552240462122152}
-  - component: {fileID: -9012219120761823057}
+  - component: {fileID: -4780570959271304188}
   m_Layer: 0
   m_Name: saw
-  m_TagString: Trap
+  m_TagString: Enemy Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,7 +156,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.000000834465, y: 0.02314663}
   m_Radius: 0.9842489
---- !u!114 &-9012219120761823057
+--- !u!114 &-4780570959271304188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2523552240462122133}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cde9d67225aec38408223d8b38043bfd, type: 3}
+  m_Script: {fileID: 11500000, guid: de1c82f1351aacc478be4a4d52e5ae0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  Damage: 25
