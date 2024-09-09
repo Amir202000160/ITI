@@ -8,7 +8,7 @@ public class Hit : MonoBehaviour {
     [SerializeField] private float Damage; // Amount of damage dealt by the hit
 
     // Called when another Collider2D enters the trigger (2D physics only)
-    public virtual void OnTriggerEnter2D(Collider2D collision) {
+    public void OnTriggerEnter2D(Collider2D collision) {
         // Check if the collision involves an enemy and the hit object is Player Weapon
         if (collision.tag == "Enemy" && gameObject.tag == "Player Weapon") {
             // Check if the enemy is not dead
