@@ -3,13 +3,16 @@ using UnityEngine;
 public class EnemyPetrol : MonoBehaviour
 {
     [SerializeField] Transform[] petrolPoints;
-    [SerializeField] float speed = 5.0f;
+    [SerializeField] private float speed = 5.0f;
 
     private Transform currentPetrolPoint;
     private int currentPetrolIndex;
 
+    private Animator anim;
+
     private void Start()
     {
+        anim = GetComponent<Animator>();
         //transform.position = petrolPoints[0].position;
         currentPetrolIndex = 0;
         currentPetrolPoint = petrolPoints[currentPetrolIndex];
@@ -32,6 +35,7 @@ public class EnemyPetrol : MonoBehaviour
                 currentPetrolIndex = 0;
             }
             currentPetrolPoint = petrolPoints[currentPetrolIndex];
+            //animation play
         }
         EnemyDirection(direction);
     }
