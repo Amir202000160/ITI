@@ -60,7 +60,7 @@ public class DissolveControl : MonoBehaviour
         }
     }
 
-    private IEnumerator DisAppaear()
+    public IEnumerator DisAppaear()
     {
         float elapsedTime = 0f;
         while (elapsedTime < _dissolveTime)
@@ -75,7 +75,7 @@ public class DissolveControl : MonoBehaviour
                     _disappearMaterials[i].SetFloat(_dissolveAmount, lerpedDissolve);
             }
 
-            yield return null;
+            yield return new WaitForSeconds(1);
         }
     }
 

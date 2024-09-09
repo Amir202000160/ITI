@@ -2,15 +2,6 @@ using UnityEngine;
 
 public class EnemyChasing : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private Transform target;
+    [SerializeField] private float chaseRange;
 }
