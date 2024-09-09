@@ -3,7 +3,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 // Declare the Player Movement class
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
     // Player Input
     private PlayerInputActions InputAction;
 
@@ -37,8 +38,11 @@ public class PlayerMovement : MonoBehaviour {
     [Tooltip("Parent object for the entire dialog system")]
     [SerializeField] private GameObject DialogSystem; // Parent object for the entire dialog system
 
+    public bool isHit = false;
     // Called when the script is first initialized
-    private void Start() {
+
+    private void Start()
+    {
         // Check for player input
         InputAction = new PlayerInputActions();
         InputAction.Player.Enable();
@@ -47,11 +51,14 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     // Called every frame
-    private void Update() {
-        if (DialogSystem.activeInHierarchy) {
+    private void Update()
+    {
+        if (DialogSystem.activeInHierarchy)
+        {
             InputAction.Player.Disable();
         }
-        else {
+        else
+        {
             InputAction.Player.Enable();
         }
 
@@ -63,78 +70,96 @@ public class PlayerMovement : MonoBehaviour {
         UpdateAnimations();
 
         // If the player is grounded
-        if (Detection.Grounded()) {
+        if (Detection.Grounded())
+        {
             // Reset the coyote counter to the coyote time
             CoyoteCounter = CoyoteTime;
         }
-        else {
+        else
+        {
             // Decrement the coyote counter by the time passed
             CoyoteCounter -= Time.deltaTime;
         }
     }
 
     // Update the player's position based on movement input
-    private void UpdateMove() {
+    private void UpdateMove()
+    {
         // Update horizontal movement velocity based on input and speed
         rb.linearVelocity = new Vector2(Movement.x * Speed, rb.linearVelocity.y);
 
         // Flip character sprite based on movement direction
-        if (Movement.x > 0) {
+        if (Movement.x > 0)
+        {
             transform.localScale = new Vector2(1, 1); // Facing right
         }
-        else if (Movement.x < 0) {
+        else if (Movement.x < 0)
+        {
             transform.localScale = new Vector2(-1, 1); // Facing left
         }
     }
 
 
     // Update player animations based on movement
-    private void UpdateAnimations() {
-        if (Movement != Vector2.zero && Detection.Grounded()) {
+    private void UpdateAnimations()
+    {
+        if (Movement != Vector2.zero && Detection.Grounded())
+        {
             animator.SetBool("Move", true);
             animator.SetFloat("JumpFall", 0);
         }
-        else if (Movement == Vector2.zero && Detection.Grounded()) {
+        else if (Movement == Vector2.zero && Detection.Grounded())
+        {
             animator.SetBool("Move", false);
             animator.SetFloat("JumpFall", 0);
         }
-        else if (!Detection.OnWall() && !Detection.Grounded()) {
+        else if (!Detection.OnWall() && !Detection.Grounded())
+        {
             animator.SetFloat("JumpFall", rb.linearVelocity.y);
         }
-        else if (Detection.OnWall() && !Detection.Grounded()) {
+        else if (Detection.OnWall() && !Detection.Grounded())
+        {
             animator.SetFloat("JumpFall", -1);
         }
     }
 
     // Handle player jumping input
-    private void Jump(InputAction.CallbackContext context) {
+    private void Jump(InputAction.CallbackContext context)
+    {
         // Checking if the jump input is started and the player is grounded or in coyote mode or just jumped
-        if (context.started && (CoyoteCounter > 0f)) {
+        if (context.started && (CoyoteCounter > 0f))
+        {
             // Adding an upward force to the rigidbody for jumping
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, JumpForce);
         }
     }
 
     // Handle player finished jumping input
-    private void EndJump(InputAction.CallbackContext context) {
+    private void EndJump(InputAction.CallbackContext context)
+    {
         // Checking if the jump input is canceled
-        if (context.canceled) {
+        if (context.canceled)
+        {
             // Reset the coyote counter
             CoyoteCounter = 0f;
         }
     }
 
     // Method to handle player taking damage
-    public void TakeDamage(float Damage) {
+    public void TakeDamage(float Damage)
+    {
         // Decrease player health by the amount of damage received
         Health -= Damage;
+        isHit = true;
 
         // Check if player's health is still above zero
-        if (Health > 0f) {
+        if (Health > 0f)
+        {
             // If health is still above zero, trigger the "Hit" animation
             animator.SetTrigger("Hit");
         }
-        else {
+        else
+        {
             // If player's health reaches zero or below, set movement to zero to stop player from moving
             Movement = Vector2.zero;
 
@@ -147,7 +172,8 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     // Method to disable the GameObject
-    private void Disable() {
+    private void Disable()
+    {
         // Deactivate the GameObject, effectively hiding it from the scene
         this.gameObject.SetActive(false);
     }
