@@ -11,7 +11,7 @@ public class Dialog : MonoBehaviour {
     [Tooltip("Prefab for displaying dialog text")]
     [SerializeField] private GameObject DialogText;   // Prefab for displaying dialog text
     [Tooltip("Text Asset to hold the dialog content")]
-    [SerializeField] private TextAsset DialogValue; // Text Asset to hold the dialog content
+    public TextAsset DialogValue; // Text Asset to hold the dialog content
 
     // Dialog UI elements
     [Header("Dialog UI:")]
@@ -33,7 +33,7 @@ public class Dialog : MonoBehaviour {
     private const string SPEAKER_TAG = "Speaker"; // Tag used in the dialog script to identify the speaker
 
     // Activates the dialog system and initializes the story
-    public void Start() {
+    public void EnableSystem() {
         DialogSystem.SetActive(true);
         SetStory();
         RefreshView();

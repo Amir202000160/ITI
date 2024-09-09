@@ -18,6 +18,10 @@ public class Hit : MonoBehaviour {
             }*/
         }
 
+        if (collision.tag == "Destructible" && gameObject.tag == "Player Weapon") {
+            collision.GetComponent<Destructible>().TakeDamage(Damage);
+        }
+
         // Check if the collision involves a player and the hit object is Enemy Weapon
         if (collision.tag == "Player" && gameObject.tag == "Enemy Weapon") {
             // Check if the Player is not dead

@@ -8,6 +8,7 @@ TagManager:
   - Trape
   - Trap
   - Enemy Weapon
+  - Destructible
   layers:
   - Default
   - TransparentFX

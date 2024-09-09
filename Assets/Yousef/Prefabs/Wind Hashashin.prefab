@@ -599,6 +599,7 @@ MonoBehaviour:
   CoyoteTime: 0.25
   Health: 100
   DialogSystem: {fileID: 0}
+  isHit: 0
 --- !u!114 &6242236005758230075
 MonoBehaviour:
   m_ObjectHideFlags: 0

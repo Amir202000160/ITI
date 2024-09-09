@@ -1,8 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class HealthBar: MonoBehaviour
 {
     private float LerbTime;
@@ -11,7 +10,7 @@ public class HealthBar: MonoBehaviour
     public Image FrontHealthBar;
     public Image Frame;
     public Image BackHealthBar;
-    public Text HealthText;
+    public TMP_Text HealthText;
 
     public float ShakeDuration = 0.2f;
     public float ShakeMagnitude = 10f;
@@ -21,6 +20,7 @@ public class HealthBar: MonoBehaviour
 
 
     float CurrentHealth;
+    float HealthBeforeUpdate;
 
 
     PlayerMovement player;
@@ -42,16 +42,15 @@ public class HealthBar: MonoBehaviour
         CurrentHealth = player.Health;
         CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth);
         UpdateHealthUi();
-        if (player.isHit)
-        {
-            TakeDamage(CurrentHealth);
-            player.isHit = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
+        if (CurrentHealth > HealthBeforeUpdate)
         {
             RestoreHealth(CurrentHealth);
         }
+        else if (CurrentHealth < HealthBeforeUpdate)
+        {
+            TakeDamage(CurrentHealth);
+        }
+
         if (CurrentHealth <= 100 && CurrentHealth > 80)
         {
             FrontHealthBar.color = new Color(1, 1, 1, 1);
@@ -76,11 +75,11 @@ public class HealthBar: MonoBehaviour
         {
             FrontHealthBar.color = new Color(255 / 255, 27 / 255, 0 / 255, 1);
         }
+        HealthBeforeUpdate = CurrentHealth;
     }
 
     public void UpdateHealthUi()
     {
-        Debug.Log(CurrentHealth);
         float fillf = FrontHealthBar.fillAmount;
         float fillB = BackHealthBar.fillAmount;
         float hFraction = CurrentHealth / MaxHealth;

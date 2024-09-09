@@ -37,8 +37,6 @@ public class PlayerMovement : MonoBehaviour
     [Header("Dialog UI:")]
     [Tooltip("Parent object for the entire dialog system")]
     [SerializeField] private GameObject DialogSystem; // Parent object for the entire dialog system
-
-    public bool isHit = false;
     // Called when the script is first initialized
 
     private void Start()
@@ -150,7 +148,6 @@ public class PlayerMovement : MonoBehaviour
     {
         // Decrease player health by the amount of damage received
         Health -= Damage;
-        isHit = true;
 
         // Check if player's health is still above zero
         if (Health > 0f)
