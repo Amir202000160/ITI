@@ -23,23 +23,8 @@ public class PlayerMovement : MonoBehaviour {
     [Header("Player Jump:")]
     [Tooltip("Jump force of the player")]
     [SerializeField] private float JumpForce; // Jump force of the player
-    [Tooltip("Time for player stay in the air")]
-    [SerializeField] private float JumpTime; // Time for player stay in the air
-    [Tooltip("Multiplier for jump speed")]
-    [SerializeField] private float JumpMultiplier; // Multiplier for jump speed
-    [Tooltip("Multiplier for fall speed")]
-    [SerializeField] private float FallMultiplier; // Multiplier for fall speed
-    [Tooltip("Wall jump force of the player")]
-    [SerializeField] private Vector2 WallJumpForce; // Wall jump force of the player
-    [Tooltip("Speed of the slide on the wall")]
-    [SerializeField] private float SlideSpeed; // Speed of the slide on the wall
     [Tooltip("Time for the player coyote")]
     [SerializeField] private float CoyoteTime; // Time for the player cyote
-    private bool Jumping; // Flag to indicate whether the player is jumping or not
-    private bool JustJumped; // Flag to indicate whether the player had jumped or not
-    private bool Slide; // Flag to indicate whether the player is sliding or not
-    private Vector2 Gravity; // Player Gravity
-    private float JumpCounter; // Counter to know how long the player stayed in the air
     private float CoyoteCounter; // Counter to know how long the player stayed in Coyote mode
 
     // Player Health and related components
@@ -59,9 +44,6 @@ public class PlayerMovement : MonoBehaviour {
         InputAction.Player.Enable();
         InputAction.Player.Jump.started += context => Jump(context);
         InputAction.Player.Jump.canceled += context => EndJump(context);
-
-        // Set gravity to physics gravity
-        Gravity = new Vector2(0, -Physics2D.gravity.y);
     }
 
     // Called every frame
@@ -93,56 +75,15 @@ public class PlayerMovement : MonoBehaviour {
 
     // Update the player's position based on movement input
     private void UpdateMove() {
-        // Check if the player is sliding
-        if (!Slide) {
-            // Update horizontal movement velocity based on input and speed
-            rb.linearVelocity = new Vector2(Movement.x * Speed, rb.linearVelocity.y);
-        }
-        else if (Slide) {
-            // Update vertical movement velocity based on input and slide speed
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Clamp(rb.linearVelocity.y, -SlideSpeed, float.MaxValue));
-        }
+        // Update horizontal movement velocity based on input and speed
+        rb.linearVelocity = new Vector2(Movement.x * Speed, rb.linearVelocity.y);
 
         // Flip character sprite based on movement direction
-        if (Movement.x > 0 && !Slide) {
+        if (Movement.x > 0) {
             transform.localScale = new Vector2(1, 1); // Facing right
         }
-        else if (Movement.x < 0 && !Slide) {
+        else if (Movement.x < 0) {
             transform.localScale = new Vector2(-1, 1); // Facing left
-        }
-
-        // Handle jumping logic
-        if (Jumping && rb.linearVelocity.y > 0) {
-            // Apply additional upward force during jump
-            rb.linearVelocity += Gravity * JumpMultiplier * Time.deltaTime;
-
-            // Track time spent jumping
-            JumpCounter += Time.fixedDeltaTime;
-
-            // Cann't double jump if jump half time is reached
-            if (JumpCounter > JumpTime / 2) {
-                JustJumped = false;
-            }
-            
-            // End jump if jump time limit is reached
-            if (JumpCounter > JumpTime) {
-                Jumping = false;
-            }
-        }
-
-        // Apply gravity multiplier when falling
-        if (rb.linearVelocity.y < 0) {
-            rb.linearVelocity -= Gravity * FallMultiplier * Time.fixedDeltaTime;
-        }
-
-        // Check if the player is on the wall not on the ground and trying to slide
-        if (Detection.OnWall() && !Detection.Grounded()) {
-            // Set slide to true
-            Slide = true;
-        }
-        else {
-            // Set slide to false
-            Slide = false;
         }
     }
 
@@ -168,26 +109,9 @@ public class PlayerMovement : MonoBehaviour {
     // Handle player jumping input
     private void Jump(InputAction.CallbackContext context) {
         // Checking if the jump input is started and the player is grounded or in coyote mode or just jumped
-        if (context.started && (CoyoteCounter > 0f || JustJumped)) {
-            // Check if this is the first jump
-            if (!JustJumped) {
-                // Adding an upward force to the rigidbody for jumping
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, JumpForce);
-            }
-            else {
-                // Adding halp upward force to the rigidbody for jumping
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, JumpForce * 0.75f);
-            }
-            
-
-            // Set jumping and JustJumped to true and jump counter to 0
-            Jumping = true;
-            JustJumped = true;
-            JumpCounter = 0;
-        }
-        else if (context.started && Detection.OnWall()) {
+        if (context.started && (CoyoteCounter > 0f)) {
             // Adding an upward force to the rigidbody for jumping
-            rb.linearVelocity = new Vector2(Movement.x * WallJumpForce.x, WallJumpForce.y);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, JumpForce);
         }
     }
 
@@ -195,9 +119,6 @@ public class PlayerMovement : MonoBehaviour {
     private void EndJump(InputAction.CallbackContext context) {
         // Checking if the jump input is canceled
         if (context.canceled) {
-            // Set jumping to false
-            Jumping = false;
-
             // Reset the coyote counter
             CoyoteCounter = 0f;
         }

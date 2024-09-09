@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8318893257599985894}
   - component: {fileID: 8823345304849735380}
   - component: {fileID: 7247290001821399863}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gangster
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -219,16 +219,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1334fa9949bbe5b47b81b780eee602b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 7.5
+  Speed: 7
   animator: {fileID: 2870921398855435579}
   rb: {fileID: 1228195661031395033}
   Detection: {fileID: 8318893257599985894}
-  JumpForce: 7.5
-  JumpTime: 1.5
-  JumpMultiplier: 1.25
-  FallMultiplier: 1.5
-  WallJumpForce: {x: 5, y: 7.5}
-  SlideSpeed: 1.5
+  JumpForce: 9.25
   CoyoteTime: 0.25
   Health: 100
   DialogSystem: {fileID: 0}
