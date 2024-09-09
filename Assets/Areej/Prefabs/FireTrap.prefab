@@ -148,8 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 446d927620d120e4299cec09a385c418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
-  activationDelay: 2
+  damage: 10
+  activationDelay: 1
   activationTime: 2
 --- !u!95 &3391781582710741724
 Animator:

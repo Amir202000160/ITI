@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 3385238815660688903}
   - component: {fileID: 1460414407673535578}
   - component: {fileID: 6242236005758230075}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Wind Hashashin
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -595,14 +595,10 @@ MonoBehaviour:
   animator: {fileID: 3053228500199354}
   rb: {fileID: 6199890837457482363}
   Detection: {fileID: 3385238815660688903}
-  JumpForce: 7.5
-  JumpTime: 1.5
-  JumpMultiplier: 1.25
-  FallMultiplier: 1.5
-  WallJumpForce: {x: 5, y: 7.5}
-  SlideSpeed: 1.5
+  JumpForce: 9.5
   CoyoteTime: 0.25
   Health: 100
+  DialogSystem: {fileID: 0}
 --- !u!114 &6242236005758230075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -618,4 +614,4 @@ MonoBehaviour:
   animator: {fileID: 3053228500199354}
   Movement: {fileID: 1460414407673535578}
   Detection: {fileID: 3385238815660688903}
-  CanAirAttack: 1
+  DialogSystem: {fileID: 0}

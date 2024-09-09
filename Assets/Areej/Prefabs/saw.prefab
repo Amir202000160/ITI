@@ -106,7 +106,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
-  speed: 2
+  speed: 7.5
 --- !u!114 &2523552240462122155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,4 +168,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1c82f1351aacc478be4a4d52e5ae0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 25
+  Damage: 20
