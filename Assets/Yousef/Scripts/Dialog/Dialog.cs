@@ -3,6 +3,7 @@ using Ink.Runtime;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 // Declare the Dialog class
 public class Dialog : MonoBehaviour {
@@ -32,6 +33,10 @@ public class Dialog : MonoBehaviour {
     private DialogContent Content; // Script attached to DialogText prefab to handle dialog text display
     private const string SPEAKER_TAG = "Speaker"; // Tag used in the dialog script to identify the speaker
 
+    public bool HasAfterDialogEffect;
+    public UnityEvent @AfterDialogEffectEvent;
+
+
     // Activates the dialog system and initializes the story
     public void EnableSystem() {
         DialogSystem.SetActive(true);
@@ -57,6 +62,9 @@ public class Dialog : MonoBehaviour {
         // If there are no choices deactivate the dialog system
         if (Story.currentChoices.Count <= 0) {
             DialogSystem.SetActive(false);
+            if (HasAfterDialogEffect) {
+                @AfterDialogEffectEvent.Invoke();
+            }
         }
     }
 
