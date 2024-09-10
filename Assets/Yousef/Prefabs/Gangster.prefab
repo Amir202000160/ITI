@@ -320,6 +320,7 @@ MonoBehaviour:
   JumpForce: 9.25
   CoyoteTime: 0.25
   Health: 100
+  MaxHealth: 100
   DialogSystem: {fileID: 0}
 --- !u!114 &7247290001821399863
 MonoBehaviour:

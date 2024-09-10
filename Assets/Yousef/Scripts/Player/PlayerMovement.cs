@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player Health:")]
     [Tooltip("Current health of the player")]
     public float Health; // Current health of the player
+    [SerializeField] private float MaxHealth;
 
     // Dialog UI elements
     [Header("Dialog UI:")]
@@ -77,6 +78,10 @@ public class PlayerMovement : MonoBehaviour
         {
             // Decrement the coyote counter by the time passed
             CoyoteCounter -= Time.deltaTime;
+        }
+
+        if (Health > MaxHealth) {
+            Health = MaxHealth;
         }
     }
 
