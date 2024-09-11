@@ -1,5 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class music : MonoBehaviour
 {
@@ -8,6 +10,13 @@ public class music : MonoBehaviour
     public GameObject Mute;
     public GameObject BG;
     public static int muteOrNot = 1;
+
+    public EventSystem eve;
+    [SerializeField] GameObject closedB;
+    public GameObject button;
+    public GameObject button2;
+    public GameObject button3;
+
 
 
     public void Start()
@@ -21,8 +30,8 @@ public class music : MonoBehaviour
         MusicG.Play();
         MusicG.mute = false;
         muteOrNot = 1;
+        eve.SetSelectedGameObject(Mute);
     }
-
 
 
     public void MuteM()
@@ -31,6 +40,7 @@ public class music : MonoBehaviour
         Mute.SetActive(false);
         MusicG.mute = true;
         muteOrNot = 0;
+        eve.SetSelectedGameObject(Music);
     }
 
     public void MusicButton()
@@ -47,10 +57,20 @@ public class music : MonoBehaviour
             Mute.SetActive(false);
             Music.SetActive(true);
         }
+
+        eve.SetSelectedGameObject(Mute);
+        button2.GetComponent<Button>().enabled = false;
+        button3.GetComponent<Button>().enabled = false;
+        button.GetComponent<Button>().enabled = false;
     }
+
 
     public void close()
     {
         BG.SetActive(false);
+        eve.SetSelectedGameObject(button);
+        button2.GetComponent<Button>().enabled = true;
+        button3.GetComponent<Button>().enabled = true;
+        button.GetComponent<Button>().enabled = true;
     }
 }
