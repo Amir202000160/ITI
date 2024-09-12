@@ -11,7 +11,8 @@ public class DialogChanger : MonoBehaviour {
     [Tooltip("Text Asset to hold the dialog content")]
     [SerializeField] private TextAsset DialogValue; // Text Asset to hold the dialog content
 
-    [SerializeField] private GameObject Effect;
+    public bool HasDialogEffect;
+    public UnityEvent @DialogEffectEvent;
     public bool HasAfterDialogEffect;
     public UnityEvent @AfterDialogEffectEvent;
 
@@ -20,8 +21,8 @@ public class DialogChanger : MonoBehaviour {
         if (collision.tag == "Player") {
             Dialog.DialogValue = DialogValue;
             Dialog.EnableSystem();
-            if (Effect != null) { 
-                Effect.SetActive(true);
+            if (HasDialogEffect) {
+                @DialogEffectEvent.Invoke();
             }
             if (HasAfterDialogEffect) {
                 Dialog.HasAfterDialogEffect = true;
