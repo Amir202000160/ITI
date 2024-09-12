@@ -57,7 +57,7 @@ Material:
     - _Dissolve_Amount: 0
     - _Dissolve_Scale: 29
     - _Outline: 0.044
-    - _SpiralStrenght: 5
+    - _SpiralStrenght: 27.7
     - _Vertical_Dissolve: 0.66
     - _time: 0.084
     m_Colors:

@@ -23,12 +23,10 @@ public class HealthBar: MonoBehaviour
     float HealthBeforeUpdate;
 
 
-    PlayerMovement player;
+    public PlayerMovement player;
 
     void Start()
     {
-
-        player = FindFirstObjectByType<PlayerMovement>();
         CurrentHealth = MaxHealth;
 
         HealthBarRectTransform = Frame.GetComponent<RectTransform>();
