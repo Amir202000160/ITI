@@ -6,6 +6,8 @@ public class EnemyChasing : MonoBehaviour
     [SerializeField] private float chaseRange;
     [SerializeField] private float speed = 10.0f;
 
+    [SerializeField] private Animator animator;
+
     public bool isChasing = false;
     private void Update()
     {
@@ -17,6 +19,7 @@ public class EnemyChasing : MonoBehaviour
             EnemyDirection(direction);
             transform.position += direction * speed * Time.deltaTime;
             //animation play
+            animator.SetBool("Walk", true);
             Debug.Log("Start Chaseing");
             isChasing = true;
         }

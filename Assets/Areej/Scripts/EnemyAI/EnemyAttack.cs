@@ -10,10 +10,12 @@ public class EnemyAttack : Hit
 
 
     private EnemyChasing chasing;
-
+    [SerializeField] private Animator animator;
     private void Start()
     {
         chasing = GetComponent<EnemyChasing>();
+        animator= GetComponent<Animator>();
+
     }
     private void Update()
     {
@@ -25,6 +27,8 @@ public class EnemyAttack : Hit
             if (Time.time > attackDelay + attackDelay)
             {
                 //animation play
+                animator.SetTrigger("Attack");
+
                 Debug.Log("Ataackedddddddddddddd");
                 attackTime = Time.time;
             }
