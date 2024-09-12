@@ -1,7 +1,7 @@
 ..ﻮﻓﺮﻌﻴﻣ ضوﺮﻔﻤﻟا هﺪﻛ #Speaker:ﻦﺴﺣ
 -> GameStart
 == GameStart ==
-+ [Continue].كﺪﻨﻋ ﯽﻨﺘﺳا #Speaker:يﺪﻨﺟ
++ [Continue].ﻚﻧﺎﻜﻣ ﻒﻗا #Speaker:يﺪﻨﺟ
     ++ [Continue]
     .ﺎﻧا ﻲﻧﺪﺼﻘﻳ نﻮﻜﻳ ﺎﻣ بر ﺎﻳ #Speaker:ﻦﺴﺣ
         +++ [Continue]
