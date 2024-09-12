@@ -1,41 +1,23 @@
 using System.Collections;
-using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class DissolveControl : MonoBehaviour
 {
     [SerializeField] private float _dissolveTime = 0.75f;
     [SerializeField] private Material _disappearMaterial; // Material used for disappearance
     [SerializeField] private Material _appearMaterial;    // Material used for appearance
-
-    private SpriteRenderer _spriteRenderers;
-    //private Material[] _disappearMaterials; 
-    //private Material[] _appearMaterials;   
+    [SerializeField] private Material AfterMaterial;    // Material used for appearance
+    [SerializeField] private SpriteRenderer GangsterSprite;
+    [SerializeField] private SpriteRenderer WindSprite;
+    [SerializeField] private GameObject GangsterCamera;
+    [SerializeField] private GameObject WindCamera;
+    [SerializeField] private HealthBar HealthBar;
 
     private int _dissolveAmount = Shader.PropertyToID("_Dissolve_Amount");
 
-    private void Start()
-    {
-        _spriteRenderers = GetComponent<SpriteRenderer>();
-      
-     
-        
-    }
-
-    void Update()
-    {
-        if (Keyboard.current.fKey.wasPressedThisFrame)
-        {
-            StartCoroutine(Test());
-          
-        }
-
-        //if (Keyboard.current.fKey.wasPressedThisFrame)
-        //{
-        //    StartCoroutine(Appear());
-        //}
-
+    private void Start() {
+        _appearMaterial.SetFloat(_dissolveAmount, 1);
     }
 
     private IEnumerator Appear()
@@ -54,6 +36,7 @@ public class DissolveControl : MonoBehaviour
             yield return null;
             
         }
+        WindSprite.material = AfterMaterial;
     }
 
     public IEnumerator DisAppaear()
@@ -67,17 +50,14 @@ public class DissolveControl : MonoBehaviour
 
             _disappearMaterial.SetFloat(_dissolveAmount, lerpedDissolve);
 
-            //for (int i = 0; i < _disappearMaterial.Length; i++)
-            //{
-                
-            //}
-
             yield return new WaitForSeconds(1);
         }
     }
 
     private IEnumerator DisAppaearr()
     {
+        GangsterSprite.material = _disappearMaterial;
+        WindSprite.material = _appearMaterial;
         float elapsedTime = 0f;
         while (elapsedTime < _dissolveTime)
         {
@@ -94,18 +74,22 @@ public class DissolveControl : MonoBehaviour
         }
     }
 
-    private IEnumerator Test()
-    {
-        StartCoroutine(DisAppaearr());
-        Debug.Log("Appaearr");
-       
-        yield return new WaitForSeconds(0.8f);
-       
-
-        StartCoroutine(Appear());
-        Debug.Log("DisAppaearr");
-
-
+    public void Transformation() {
+        StartCoroutine(Transform());
     }
 
+    private IEnumerator Transform()
+    {
+        StartCoroutine(DisAppaearr());
+       
+        yield return new WaitForSeconds(0.5f);
+        WindSprite.gameObject.SetActive(true);
+        WindSprite.transform.position = gameObject.transform.position;
+        WindSprite.gameObject.SetActive(true);
+        GangsterCamera.SetActive(false);
+        WindCamera.SetActive(true);
+        WindSprite.gameObject.GetComponent<PlayerMovement>().Health = gameObject.GetComponent<PlayerMovement>().Health;
+        HealthBar.player = WindSprite.gameObject.GetComponent<PlayerMovement>();
+        StartCoroutine(Appear());
+    }
 }
