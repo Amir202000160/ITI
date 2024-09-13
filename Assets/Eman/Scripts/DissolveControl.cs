@@ -37,6 +37,7 @@ public class DissolveControl : MonoBehaviour
             
         }
         WindSprite.material = AfterMaterial;
+        GangsterSprite.gameObject.SetActive(false);
     }
 
     public IEnumerator DisAppaear()

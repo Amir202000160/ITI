@@ -62,9 +62,5 @@ public class SpikeHead : Hit
         destination = transform.position;
         attacking = false;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        base.OnTriggerEnter2D(collision);
-        Stop();
-    }
+    
 }
