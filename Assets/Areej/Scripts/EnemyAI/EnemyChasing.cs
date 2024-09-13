@@ -19,8 +19,7 @@ public class EnemyChasing : MonoBehaviour
             EnemyDirection(direction);
             transform.position += direction * speed * Time.deltaTime;
             //animation play
-            animator.SetBool("Walk", true);
-            Debug.Log("Start Chaseing");
+            animator.SetBool("Move", true);
             isChasing = true;
         }
         else

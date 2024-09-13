@@ -28,8 +28,6 @@ public class EnemyAttack : Hit
             {
                 //animation play
                 animator.SetTrigger("Attack");
-
-                Debug.Log("Ataackedddddddddddddd");
                 attackTime = Time.time;
             }
 

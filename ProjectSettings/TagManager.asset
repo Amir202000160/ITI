@@ -4,11 +4,12 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Player Weapon
   - Trape
   - Trap
   - Enemy Weapon
   - Destructible
+  - Enemy
+  - Player Weapon
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - UI
   - BACK
   - Player
-  - 
+  - Enemy
   - 
   - 
   - Ground
