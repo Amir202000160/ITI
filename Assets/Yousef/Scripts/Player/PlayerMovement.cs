@@ -1,6 +1,7 @@
 // Import necessary libraries
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 // Declare the Player Movement class
 public class PlayerMovement : MonoBehaviour
@@ -178,5 +179,6 @@ public class PlayerMovement : MonoBehaviour
     {
         // Deactivate the GameObject, effectively hiding it from the scene
         this.gameObject.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
